@@ -18,11 +18,11 @@ object StringTailRecursion {
     // Replaces the first n appearances of a regular expression with a string.
     def replaceFirstN(str: String, regex: String, newString: String, n: Int): String = {
       @tailrec
-      def replaceTailrec(n: Int, acc: String = str): String = {
+      def replaceTailrec(n: Int = n, acc: String = str): String = {
         if (n == 0) acc
         else replaceTailrec(n - 1, acc.replaceFirst(regex, newString))
       }
-      replaceTailrec(n)
+      replaceTailrec()
     }
 
     println(replaceFirstN("This is interesting", "is", "a", 2))
