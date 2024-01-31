@@ -15,7 +15,7 @@ object StringTailRecursion {
 
     println(stringConcatenation("Hello", 5))
 
-    // Replace a character in a string with another character n times
+    // Replaces the first n appearances of a regular expression with a string.
     def replaceFirstN(str: String, regex: String, newString: String, n: Int): String = {
       @tailrec
       def replaceTailrec(n: Int, acc: String = str): String = {
