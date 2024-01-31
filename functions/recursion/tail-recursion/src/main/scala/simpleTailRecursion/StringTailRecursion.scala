@@ -16,7 +16,7 @@ object StringTailRecursion {
     println(stringConcatenation("Hello", 5))
 
     // Replace a character in a string with another character n times
-    def stringCharacterReplace(str: String, regex: String, newString: String, n: Int): String = {
+    def replaceFirstN(str: String, regex: String, newString: String, n: Int): String = {
       @tailrec
       def replaceTailrec(n: Int, acc: String = str): String = {
         if (n == 0) acc
@@ -25,6 +25,6 @@ object StringTailRecursion {
       replaceTailrec(n)
     }
 
-    println(stringCharacterReplace("This is interesting", "is", "a", 2))
+    println(replaceFirstN("This is interesting", "is", "a", 2))
   }
 }
