@@ -7,11 +7,15 @@ abstract class Light {
   def apply: Unit
 }
 
-class lamp(brightness: Int, active: Boolean) extends Light {
+class lamp(brightness: Int, active: Boolean) extends Light with Purchasable {
   override val lumens: Int = brightness
   override def switch: Light = new lamp(brightness, !active)
   override def isOn: Boolean = active
   override def apply: Unit = println(s"This is a lamp")
+}
+
+trait Purchasable {
+  def canPurchase = println("Thia object can be purchased.")
 }
 
 object Main {
@@ -21,5 +25,6 @@ object Main {
     println(tableLamp.isOn)
     println(tableLamp.switch.isOn)
     tableLamp.apply
+    tableLamp.canPurchase
   }
 }
